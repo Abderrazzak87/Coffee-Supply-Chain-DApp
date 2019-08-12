@@ -162,7 +162,7 @@ npm install --save ipfs-http-client
 ```
 3. Launch ganache:
 ```
-ganache-cli -m "design junk dune any pitch cabin ability ancient dirt uncover gym resource"
+ganache-cli -m "<PUT HERE YOUR WALLET MNEMONIC>"
 ```
 4. In a separate terminal window, Compile smart contracts:
 ```
