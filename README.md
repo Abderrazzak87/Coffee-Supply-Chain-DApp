@@ -139,8 +139,7 @@ addImage:async function(file) {
 
   ipfs.add(file).then(function(result) {
     App.ipfsHash = result[0].hash;
-    console.log("IPFS Hash:" + result[0].hash);
-      console.log('addImage',result);
+      console.log("IPFS Hash:" + result[0].hash);
       return App.upload();
   }).catch(function(err) {
       console.log(err.message);
@@ -148,3 +147,57 @@ addImage:async function(file) {
 
 },
 ```
+
+## How To Start
+1. Clone this repository
+```
+git clone https://github.com/Abderrazzak87/Coffee-Supply-Chain-DApp.git
+```
+2. Change directory to ```app``` folder and install all requisite npm packages:
+```
+cd app
+npm init
+npm install
+npm install --save ipfs-http-client
+```
+3. Launch ganache:
+```
+ganache-cli -m "design junk dune any pitch cabin ability ancient dirt uncover gym resource"
+```
+4. In a separate terminal window, Compile smart contracts:
+```
+truffle compile
+```
+5. Migrate smart contracts to the locally running blockchain, ganache-cli:
+```
+truffle migrate
+```
+6. Test smart contracts:
+```
+truffle test
+```
+7. In a separate terminal window, launch the DApp:
+```
+npm run dev
+```
+
+## Deployed contract (Rinkeby)
+* Transaction ID – 0x110b21004d787b90ee7527a983376890fa9ea69658a5a3c42e159b712493d53e
+* Contract ID – 0xBbAc1A496802eb3ec4f688002f462C2483515C65
+
+* https://rinkeby.etherscan.io/address/0xBbAc1A496802eb3ec4f688002f462C2483515C65
+
+### Transaction History
+* FarmerAdded - 0x888233b49541ff721ad9d2b0dd2b9eef3ebc82d31155493f9daaaedb315150fe
+* DistributorAdded - 0xa806a5c34a158a9d1b6c63acac1ac7406458ce6a16e63910de019e6600eae927
+* RetailerAdded - 0xf06a38862f8854b5bfeb86725fd43a8af2683a343f7aca966cad24790df95c28
+* ConsumerAdded - 0xc02e986eec36126cfd7092eeb9a456ac9816c15344f2520a858bb4d58cd8dc88
+* Harvested - 0x257c5bcd2755d7690efdf3b0755d1a3cf79d1d975de599bc4a525e3d8f31d73c
+* Processed - 0x11db6f403a7b952036f9dd18ff98cc3d36b4e96e685938c54c2fa3c1c741e151
+* Packed - 0x2bd5effcf29e841f235a3be6735b740897f3ec34b3350bbf349b8166b60ac10a
+* ForSale - 0x9cb3842f38b1961b445eeabba7494d417981a6ad6568741f0292323a01c06898
+* Sold - 0x6ed432b24e2796d1e0fb3337a69b512a5302461e127475ce6c90561c48f72ff4
+* Shipped - 0xd513ec12a9993a69ae0a0721c182d0918b90087fa99381097a3471f0c00b6b35
+* Received - 0xb87ac860138e6b66921d1598bdd2c6045027f0036c2297a261c3554348a6e500
+* Purchased - 0x4fa3117dbf4a3b2792287bb6cf535ae73681d2253e324df2ce11e8c9afe47632
+* Uploaded - 0xa231220064e9bc418a67d7b91d9ace2fd590d40d2fb082e9acdd7e6a69bc4212
