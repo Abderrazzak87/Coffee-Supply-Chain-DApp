@@ -35,14 +35,14 @@ Different steps that a product (coffee)  goes through until it will be bought by
 
 #### Role Management Section
 User can can add a new farmer, distributor, retailer or a consumer to the list of users of the DApp.
-![Role Management Section](./ images/ftc_role_management.png "Role Management Section")
+![Role Management Section](./images/ftc_role_management.png "Role Management Section")
 
 #### Product Overview Section
 User can fetch information about concrete product.
 * **Fetch Data 1** – Fetch farmer related data
 * **Fetch Data 2** – Fetch the product data related the distributor, the retailer and the consumer.
 * **Fetch Image** – Fetch the product image stored in the INFURA IPFS node.
-![Product Overview](./ images/ftc_product_overview.png "Product Overview")
+![Product Overview](./images/ftc_product_overview.png "Product Overview")
 
 #### Farmer Details Section
 This form is used to show the Farmer ID, Name, coordinates (Long and Lat) fetched by the **Fetch Data 1** button (#product-overview-section). It is used also to input the farmer's information.
@@ -51,7 +51,7 @@ In this section a Farmer can harvest coffee → process coffee → pack coffee b
 * **Process** – This button calls the processItem() method of the SupplyChain.sol contract.
 * **Pack** – This button calls the packItem() method of the SupplyChain.sol contract.
 * **Buy** – This button calls the buyItem() method of the SupplyChain.sol contract.
-![Farmer Details](./ images/ftc_farm_details.png "Farm Details")
+![Farmer Details](./images/ftc_farm_details.png "Farm Details")
 
 #### Product Details Section
 This form is used to show the information fetched by the **Fetch Data 2** button (#product-overview-section).
@@ -62,9 +62,9 @@ Retailer can receive coffee. And finally Consumer can purchase Coffee from Retai
 * **Ship** – This button calls the shipItem() method of the SupplyChain.sol contract.
 * **Receive** – This button calls the receiveItem() method of the SupplyChain.sol contract.
 * **Purchase** – This button calls the purchaseItem() method of the SupplyChain.sol contract.
-![Product Details](./ images/ftc_product_details.png "Product Details")
+![Product Details](./images/ftc_product_details.png "Product Details")
 
 
 #### Transaction History Section
 This section contains transaction hashs of all transactions that was produced by processing a product in the supply chain.
-![Transaction History](./ images/transaction_history.png "Transaction History")
+![Transaction History](./images/transaction_history.png "Transaction History")
