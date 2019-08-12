@@ -69,12 +69,82 @@ Retailer can receive coffee. And finally Consumer can purchase Coffee from Retai
 
 ![Product Details](./images/ftc_product_details.png "Product Details")
 
+### IPFS Image Uploader
+This section allows a product owner to upload an image of the product.
+
+![IPFS Image Uploader](./images/ftc_ipfs_image_uploader.png "IPFS Image Uploader")
+
 ### Transaction History Section
 This section contains transaction hashs of all transactions that was produced by processing a product in the supply chain.
 
 ![Transaction History](./images/ftc_transaction_history.png "Transaction History")
 
-### IPFS Image Uploader
-This section allows to a product owner to upload an image of the product.
+## Libraries
 
-![IPFS Image Uploader](./images/ftc_ipfs_image_uploader.png "IPFS Image Uploader")
+* Truffle v5.0.25 (core: 5.0.25)
+* Solidity v0.5.0 (solc-js)
+* Node v10.15.3
+* Web3.js v1.0.0-beta.37
+* ipfs version 0.4.21
+
+## IPFS
+
+IPFS is used to store the product image outside the Ethereum blockchain. Instead of that, the ipfs hash of the image is stored in the Ethereum blockchain.
+
+### Install
+
+This module uses node.js, and can be installed through npm:
+
+```bash
+npm install --save ipfs-http-client
+```
+
+### Importing the module and usage
+**from CDN**
+
+Instead of a local installation, I request a remote copy of IPFS API from [unpkg CDN](https://unpkg.com/).
+
+```html
+<!-- loading the minified version -->
+<script src="https://unpkg.com/ipfs-http-client/dist/index.min.js"></script>
+<!-- loading the human-readable (not minified) version -->
+<script src="https://unpkg.com/ipfs-http-client/dist/index.js"></script>
+```
+
+CDN-based IPFS API provides the `IpfsHttpClient` constructor as a method of the global `window` object.
+
+```js
+initIPFS: async function(){
+
+  ipfs = new window.IpfsHttpClient('ipfs.infura.io', '5001', { protocol: 'https' });
+},
+```
+
+### CORS
+
+In a web browser IPFS HTTP client (either browserified or CDN-based) might encounter an error saying that the origin is not allowed. This would be a CORS ("Cross Origin Resource Sharing") failure: IPFS servers are designed to reject requests from unknown domains by default. You can whitelist the domain that you are calling from by changing your ipfs config like this:
+
+```console
+$ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin  '["http://example.com"]'
+$ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST", "GET"]'
+```
+
+### Add files and data to IPFS
+To add a file to the Infura IPFS node, the ipfs.add() method is used.
+
+- [`ipfs.add(data, [options], [callback])`](https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/FILES.md#add)
+
+```js
+addImage:async function(file) {
+
+  ipfs.add(file).then(function(result) {
+    App.ipfsHash = result[0].hash;
+    console.log("IPFS Hash:" + result[0].hash);
+      console.log('addImage',result);
+      return App.upload();
+  }).catch(function(err) {
+      console.log(err.message);
+  });
+
+},
+```
