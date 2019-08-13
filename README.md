@@ -201,3 +201,7 @@ npm run dev
 * Received - 0xb87ac860138e6b66921d1598bdd2c6045027f0036c2297a261c3554348a6e500
 * Purchased - 0x4fa3117dbf4a3b2792287bb6cf535ae73681d2253e324df2ce11e8c9afe47632
 * Uploaded - 0xa231220064e9bc418a67d7b91d9ace2fd590d40d2fb082e9acdd7e6a69bc4212
+
+## License
+
+The contents of this repository are covered under the [MIT License](LICENSE).
